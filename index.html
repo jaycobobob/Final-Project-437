@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <script src="scripts/Board.js"></script>
+    <script src="scripts/yty-objects/Terminal.js"></script>
+    <script src="scripts/yty-objects/Region.js"></script>
+    <script src="scripts/yty-objects/IntersectionGraph.js"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="ico.png">
+    <title>Optimal Circuit Board Wiring</title>
+</head>
+<body>
+    <span>
+        <div id="controls">
+            <label id="control-panel-label" class="control-panel-element">Board Controls</label>
+            <div id="control-panel" class="frame">
+                <div class="control-panel-element">
+                    <label for="board-size-input">Enter Board Size:</label>
+                    <input type="text" id="board-size-input" value="8" size="4" maxlength="2">
+                    <button id="board-size-button" onclick="recreateGrid()">Resize Board</button>
+                    <div>
+                        <label class="subtext">Warning! Existing board will be wiped.</label>
+                    </div>
+                </div>
+                <div class="control-panel-element">
+                    <button id="new-wire-button" data-visibility="visible" onclick="addWireButtonHandler()">Add New Wire</button>
+                </div>
+                <div class="control-panel-element">
+                    <button id="new-wire-confirm" data-visibility="hidden">Confirm Wire</button>
+                </div>
+                <div class="control-panel-element">
+                    <button id="new-wire-cancel" data-visibility="hidden">Cancel Wire</button>
+                </div>
+            </div>
+        </div>
+        <div id="board-frame">
+            <label id="board-label">Board</label>
+            <div id="board-container" class="frame"></div>
+        </div>
+
+    </span>
+</body>
+<script src="scripts/tests/test.js"></script>
+<script src="scripts/main.js"></script>
+</html>

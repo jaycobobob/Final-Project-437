@@ -1,0 +1,53 @@
+#board {
+    width: 100%;
+    height: 100%;
+}
+
+#board-frame {
+    float: left;
+    text-align: center;
+    font-size: 30px;
+}
+
+#controls {
+    float: left;
+    text-align: center;
+}
+
+#control-panel {
+    max-width: 200px;
+    height: 600px;
+    text-align: left;
+}
+
+#control-panel-label {
+    font-size: 30px;
+}
+
+.control-panel-element {
+    margin: 10px;
+}
+
+.subtext {
+    font-size: 12px;
+}
+
+.grid-cell {
+    fill: azure;
+    outline: 1px dashed slategrey;
+}
+
+.frame {
+    background-color: azure;
+    border: 5px solid slategrey;
+    margin: 10px;
+}
+
+#board-container {
+    width: 600px;
+    height: 600px;
+}
+
+[data-visibility=hidden] {
+    visibility: hidden;
+}
