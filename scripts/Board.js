@@ -37,6 +37,18 @@ class Board {
     getFlattenedGrid() {
         return [].concat(...this.#grid);
     }
+
+    getCell(x, y) {
+        return this.#grid[y][x];
+    }
+
+    wipeHightowerData() {
+        for (let rowNum = 0; rowNum < this.size; rowNum++) {
+            for (let colNum = 0; colNum < this.size; colNum++) {
+                this.#grid[rowNum][colNum].weight = 0;
+            }
+        }
+    }
 }
 
 class GridCell {
@@ -50,8 +62,29 @@ class GridCell {
     left;
     right;
 
+    // contents
+    isTerminal = false;
+    isWire = false;
+
+    //hightower helpers
+    weight = 0;
+
     constructor(row, column) {
         this.row = row;
         this.column = column;
+    }
+
+    static setWireData(chain) {
+        if (chain.length === 0) return;
+        chain.forEach((cell) => {
+            cell.isWire = true;
+        });
+    }
+
+    static wipeWireData(chain) {
+        if (chain.length === 0) return;
+        chain.forEach((cell) => {
+            cell.isWire = false;
+        })
     }
 }

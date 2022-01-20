@@ -6,4 +6,8 @@ class Terminal {
         this.x = x;
         this.y = y;
     }
+
+    valueOf() {
+        return this.x * 1000 + this.y;
+    }
 }

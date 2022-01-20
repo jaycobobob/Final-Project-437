@@ -5,47 +5,65 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <script src="scripts/Board.js"></script>
+    <script src="scripts/View.js"></script>
+    <script src="scripts/EventHandlers.js"></script>
+    <script src="scripts/Hightower.js"></script>
     <script src="scripts/yty-objects/Terminal.js"></script>
     <script src="scripts/yty-objects/Region.js"></script>
     <script src="scripts/yty-objects/IntersectionGraph.js"></script>
 
 
 
+
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" type="image/png" href="ico.png">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <title>Optimal Circuit Board Wiring</title>
 </head>
 <body>
-    <span>
-        <div id="controls">
-            <label id="control-panel-label" class="control-panel-element">Board Controls</label>
-            <div id="control-panel" class="frame">
-                <div class="control-panel-element">
-                    <label for="board-size-input">Enter Board Size:</label>
-                    <input type="text" id="board-size-input" value="8" size="4" maxlength="2">
-                    <button id="board-size-button" onclick="recreateGrid()">Resize Board</button>
-                    <div>
-                        <label class="subtext">Warning! Existing board will be wiped.</label>
-                    </div>
-                </div>
-                <div class="control-panel-element">
-                    <button id="new-wire-button" data-visibility="visible" onclick="addWireButtonHandler()">Add New Wire</button>
-                </div>
-                <div class="control-panel-element">
-                    <button id="new-wire-confirm" data-visibility="hidden">Confirm Wire</button>
-                </div>
-                <div class="control-panel-element">
-                    <button id="new-wire-cancel" data-visibility="hidden">Cancel Wire</button>
-                </div>
-            </div>
+    <header>
+        <div>
+            <label class="title">Optimal Circuit Board Wiring</label>
         </div>
-        <div id="board-frame">
-            <label id="board-label">Board</label>
-            <div id="board-container" class="frame"></div>
+        <div>
+            <label class="subtitle">Jacob Edwards CSC 437</label>
         </div>
-
+    </header>
+    <span class="contents">
+        <div class="sidenav">
+        <ul class="sidenav-inner">
+            <li class="sidenav-title">Board Config</li>
+            <li class="label-container">
+                <label for="board-size-input">Board Size</label>
+                <input type="text" id="board-size-input" maxlength="2" size="2" value="8" onchange="wipeButtonHandler()">
+            </li>
+            <li>
+                <span>
+                    <button id="wipe-button" type="button" onclick="wipeButtonHandler()">Wipe</button>
+                    <button id="refresh-button" type="button" onclick="refreshButtonHandler()">Refresh</button>
+                </span>
+            </li>
+            <li class="sidenav-title">Board Presets</li>
+            <li>
+                <button id="preset1" type="button" onclick="preset1Handler()">Preset 1</button>
+            </li>
+            <li>
+                <button id="preset2" type="button" onclick="preset2Handler()">Preset 2</button>
+            </li>
+            <li class="sidenav-title">Custom Board</li>
+            <li>
+                <button id="custom-button" type="button" onclick="customTerminalHandler()">Enter Custom Mode</button>
+            </li>
+        </ul>
+        </div>
+        <span id="board-container">
+            <div id="board-container-inner" class="frame"></div>
+        </span>
     </span>
+    <br>
+
+
 </body>
-<script src="scripts/tests/test.js"></script>
 <script src="scripts/main.js"></script>
+<!--<script src="scripts/tests/test.js"></script>-->
 </html>
